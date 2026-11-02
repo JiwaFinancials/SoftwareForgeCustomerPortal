@@ -9,16 +9,21 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>8.0.63.0</AssemblyVersion>
+    <FileVersion>8.0.63.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Data\**" />
     <Compile Remove="wwwroot\bootstrap\**" />
+    <Content Remove="Data\**" />
     <Content Remove="wwwroot\bootstrap\**" />
+    <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="wwwroot\bootstrap\**" />
+    <None Remove="Data\**" />
     <None Remove="wwwroot\bootstrap\**" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" />
     <PackageReference Include="Azure.Identity" />
@@ -35,10 +40,19 @@
     <_ContentIncludedByDefault Remove="Components\User\PasswordReset.razor" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Components\Pages\SalesQuote\SalesQuote.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\Pages\SalesOrder\SalesOrder.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <Content Update="Components\Pages\Diagnostics.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
     <Content Update="Components\Pages\StatementPDF.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\Pages\SalesQuote\SalesQuotePDF.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
     <Content Update="Components\User\ChangePasswordConfirmation.razor">
@@ -52,6 +66,6 @@
     <UpToDateCheckInput Remove="Components\SignedInUserInfo.razor" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Folder Include="obj\" />
   </ItemGroup>
 </Project>
