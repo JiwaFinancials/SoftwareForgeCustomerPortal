@@ -378,7 +378,13 @@
 
     private void ResetForm()
     {
-        _model = new PrepareUploadRequest();
+        var isSolutionProvider = WebPortalUserSessionStateContainer.WebPortalUserSession?.DebtorCategory1Description == "Jiwa Solution Provider";
+        _model = new PrepareUploadRequest
+        {
+            CompanyName = isSolutionProvider ? string.Empty : _model.CompanyName,
+            ContactName = _model.ContactName,
+            EmailAddress = _model.EmailAddress
+        };
         _selectedFiles = new List<SelectedFileInfo>();
         _selectedFile = null;
         _showSuccess = false;
